@@ -586,6 +586,8 @@ root.append(new (0, _appDefault.default)().el);
 },{"./App":"2kQhy","./routes":"3L9mC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2kQhy":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+var _theFooter = require("./componets/TheFooter");
+var _theFooterDefault = parcelHelpers.interopDefault(_theFooter);
 var _theHeader = require("./componets/TheHeader");
 var _theHeaderDefault = parcelHelpers.interopDefault(_theHeader);
 var _jimin = require("./core/jimin");
@@ -593,12 +595,13 @@ class App extends (0, _jimin.Component) {
     render() {
         const routerView = document.createElement("router-view");
         const theHeader = new (0, _theHeaderDefault.default)().el;
-        this.el.append(theHeader, routerView);
+        const theFooter = new (0, _theFooterDefault.default)().el;
+        this.el.append(theHeader, routerView, theFooter);
     }
 }
 exports.default = App;
 
-},{"./core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./componets/TheHeader":"kmAYJ"}],"cc3nh":[function(require,module,exports) {
+},{"./core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./componets/TheHeader":"kmAYJ","./componets/TheFooter":"dBS3Y"}],"cc3nh":[function(require,module,exports) {
 ///// Component /////
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -770,7 +773,7 @@ class TheHeader extends (0, _jimin.Component) {
                 </ul>
             </nav>
             <a href="#/about" class="user">
-                <img src="https://heropy.blog/css/images/logo.png" alt="User" />
+                <img src="https://avatars.githubusercontent.com/u/65649035?s=96&v=4" alt="User" />
             </a>
             
         `;
@@ -778,10 +781,50 @@ class TheHeader extends (0, _jimin.Component) {
 }
 exports.default = TheHeader;
 
+},{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dBS3Y":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jimin = require("../core/jimin");
+var _about = require("../store/about");
+var _aboutDefault = parcelHelpers.interopDefault(_about);
+class TheFooter extends (0, _jimin.Component) {
+    constructor(){
+        super({
+            tagName: "footer"
+        });
+    }
+    render() {
+        const { github } = (0, _aboutDefault.default).state;
+        this.el.innerHTML = `
+            <div>
+                <a href="${github}">GitHub Repository</a>
+            </div>
+            <div>
+                <a href="https://github.com/moana16">${new Date().getFullYear()} MOANA</a>
+            </div>
+        `;
+    }
+}
+exports.default = TheFooter;
+
+},{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../store/about":"4RAJO"}],"4RAJO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jimin = require("../core/jimin");
+exports.default = new (0, _jimin.Store)({
+    photo: "https://avatars.githubusercontent.com/u/65649035?s=96&v=4",
+    name: "MOANA / KimJiMin",
+    email: "moana16@naver.com",
+    blog: "https://chichi-dev.tistory.com/",
+    github: "https://github.com/moana16"
+});
+
 },{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3L9mC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jimin = require("../core/jimin");
+var _about = require("./About");
+var _aboutDefault = parcelHelpers.interopDefault(_about);
 var _home = require("./Home");
 var _homeDefault = parcelHelpers.interopDefault(_home);
 var _movie = require("./Movie");
@@ -794,10 +837,14 @@ exports.default = (0, _jimin.createRouter)([
     {
         path: "#/movie",
         component: (0, _movieDefault.default)
+    },
+    {
+        path: "#/about",
+        component: (0, _aboutDefault.default)
     }
 ]);
 
-},{"../core/jimin":"cc3nh","./Home":"0JSNG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Movie":"1LTyN"}],"0JSNG":[function(require,module,exports) {
+},{"../core/jimin":"cc3nh","./Home":"0JSNG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Movie":"1LTyN","./About":"gdB30"}],"0JSNG":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _headline = require("../componets/Headline");
@@ -1085,6 +1132,31 @@ class Movie extends (0, _jimin.Component) {
 }
 exports.default = Movie;
 
-},{"../core/jimin":"cc3nh","../store/movie":"kq1bo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["f3BSW","gLLPy"], "gLLPy", "parcelRequire6588")
+},{"../core/jimin":"cc3nh","../store/movie":"kq1bo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gdB30":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jimin = require("../core/jimin");
+var _about = require("../store/about");
+var _aboutDefault = parcelHelpers.interopDefault(_about);
+class About extends (0, _jimin.Component) {
+    render() {
+        const { photo, name, email, blog, github } = (0, _aboutDefault.default).state;
+        this.el.classList.add("container", "about");
+        this.el.innerHTML = `
+        <div 
+            class="photo"
+            style="background-image: url(${photo})"></div>
+        <p class="name">${name}</p>
+        <p>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${email}" target="_blank">${email}</a>
+        </p>
+        <p class="github"><a href="${github}" target="_blank">GitHub</a></p>
+        <p class="blog"><a href="${blog}" target="_blank">Blog</a></p>
+        `;
+    }
+}
+exports.default = About;
+
+},{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../store/about":"4RAJO"}]},["f3BSW","gLLPy"], "gLLPy", "parcelRequire6588")
 
 //# sourceMappingURL=index.4d6bcbeb.js.map
