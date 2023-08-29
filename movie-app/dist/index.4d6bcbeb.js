@@ -807,7 +807,7 @@ class TheFooter extends (0, _jimin.Component) {
 }
 exports.default = TheFooter;
 
-},{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../store/about":"4RAJO"}],"4RAJO":[function(require,module,exports) {
+},{"../core/jimin":"cc3nh","../store/about":"4RAJO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4RAJO":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jimin = require("../core/jimin");
@@ -829,6 +829,8 @@ var _home = require("./Home");
 var _homeDefault = parcelHelpers.interopDefault(_home);
 var _movie = require("./Movie");
 var _movieDefault = parcelHelpers.interopDefault(_movie);
+var _notFound = require("./NotFound");
+var _notFoundDefault = parcelHelpers.interopDefault(_notFound);
 exports.default = (0, _jimin.createRouter)([
     {
         path: "#/",
@@ -841,10 +843,14 @@ exports.default = (0, _jimin.createRouter)([
     {
         path: "#/about",
         component: (0, _aboutDefault.default)
-    }
+    },
+    {
+        path: ".*",
+        component: (0, _notFoundDefault.default)
+    } //모든 페이지와 모두 일치할수 있는 정규표현식
 ]);
 
-},{"../core/jimin":"cc3nh","./Home":"0JSNG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Movie":"1LTyN","./About":"gdB30"}],"0JSNG":[function(require,module,exports) {
+},{"../core/jimin":"cc3nh","./Home":"0JSNG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Movie":"1LTyN","./About":"gdB30","./NotFound":"4fDiL"}],"0JSNG":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _headline = require("../componets/Headline");
@@ -1157,6 +1163,23 @@ class About extends (0, _jimin.Component) {
 }
 exports.default = About;
 
-},{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../store/about":"4RAJO"}]},["f3BSW","gLLPy"], "gLLPy", "parcelRequire6588")
+},{"../core/jimin":"cc3nh","../store/about":"4RAJO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4fDiL":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jimin = require("../core/jimin");
+class NotFound extends (0, _jimin.Component) {
+    render() {
+        this.el.classList.add("container", "not-found");
+        this.el.innerHTML = `
+            <h1>
+                Sorry..<br>
+                Page Not Found.</h1>
+            </h1>
+        `;
+    }
+}
+exports.default = NotFound;
+
+},{"../core/jimin":"cc3nh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["f3BSW","gLLPy"], "gLLPy", "parcelRequire6588")
 
 //# sourceMappingURL=index.4d6bcbeb.js.map

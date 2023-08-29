@@ -26,6 +26,20 @@ body {
     padding: 40px 0;
 }
 
+@media (max-width: 1200px) {
+    .container { 
+        padding : 40px;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .container { 
+        padding : 20px;
+    }
+
+}
+
 .btn {
     height: 50px;
     padding: 0 20px;
@@ -172,6 +186,18 @@ header .user img {
     
 }
 
+@media(max-width:600px) {
+    header {
+        padding: 14px 20px;
+    }
+    header nav {
+        display: none;
+    }
+    header .user {
+        right : 20px;
+    }
+}
+
 footer {
     padding: 40px 40px 60px;
     text-align: center;
@@ -202,6 +228,12 @@ footer a:hover {
 }
 .headline p {
     color: var(--color-white-30);
+}
+
+@media(max-width:600px) {
+    .headline h1 {
+        font-size: 60px;
+    }
 }
 
 .search {
@@ -367,6 +399,29 @@ footer a:hover {
     
 }
 
+@media(max-width:1200px) {
+    .the-movie {
+        gap : 30px;
+    }
+    .the-movie .poster {
+        --width : 300px;
+    }
+
+
+}
+
+@media(max-width:720px) {
+    .the-movie {
+        display: block;
+    }
+
+    .the-movie .title {
+        font-size: 50px;
+        margin-top: 50px;
+    }
+
+}
+
 .about .photo{
     width: 230px;
     height: 230px;
@@ -400,5 +455,11 @@ footer a:hover {
     
 }
 
+.not-found h1 {
+    font-size: 70px;
+    font-weight: 700;
+    color: var(--color-white-10);
+    text-align: center;
 
+}
 
